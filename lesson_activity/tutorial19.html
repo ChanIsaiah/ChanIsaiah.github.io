@@ -1,0 +1,215 @@
+<html><head>
+<link rel=icon href=gura.jpg type=image/jpg>
+<meta name=viewport content=width=device-width, initial-scale=1.0>
+<title>Tutorial 19</title>
+<script>
+    function updateOptions() {
+        var selectedCourse = document.getElementById("course").value;
+
+        var courseNumberDropdown = document.getElementById("courseNumber");
+
+        courseNumberDropdown.innerHTML = '';
+
+        switch (selectedCourse) {
+            case "dcs":
+                addOption(courseNumberDropdown, "dcs1001", "DCS 1001");
+                addOption(courseNumberDropdown, "dcs1002", "DCS 1002");
+                addOption(courseNumberDropdown, "dcs1003", "DCS 1003");
+                break;
+            case "dib":
+                addOption(courseNumberDropdown, "dib1001", "DIB 1001");
+                addOption(courseNumberDropdown, "dib1002", "DIB 1002");
+                addOption(courseNumberDropdown, "dib1003", "DIB 1003");
+                break;
+            default:
+             
+                break;
+        }
+    }
+
+    function addOption(selectElement, value, text) {
+        var option = document.createElement("option");
+        option.value = value;
+        option.text = text;
+        selectElement.add(option);
+    }
+</script>
+</head>
+<style>body{
+background-color:yellow; 
+margin-top:50px;
+}
+
+table, td {
+  border: 0px;
+  background-color: powderblue;
+}
+
+table {
+  width: 60%;
+  height: 70%;
+}
+
+th.a{
+  background-color:grey;
+  text-align:center;
+}
+
+
+td.a{
+  background-color:black;
+  font-family: Oswald;
+   animation: Color 4s linear infinite;
+  -webkit-animation: Color 4s ease-in-out infinite;
+}
+
+@keyframes Color{
+  0%{
+    color:#A0D468;
+  }
+  
+  20%{
+    color:#4FC1E9;
+  }
+  
+  40%{
+    color:#FFCE54;
+  }
+  
+  60%{
+    color:#FC6E51;
+  }
+  
+  80%{
+    color:#ED5565;
+  }
+  
+  100%{
+    color:#AC92EC;
+  }
+}
+
+@-moz-keyframes Color{
+  0%{
+    color:#A0D468;
+  }
+  
+  20%{
+    color:#4FC1E9;
+  }
+  
+  40%{
+    color:#FFCE54;
+  }
+  
+  60%{
+    color:#FC6E51;
+  }
+  
+  80%{
+    color:#ED5565;
+  }
+  
+  100%{
+    color:#AC92EC;
+  }
+}
+
+@-webkit-keyframes Color{
+  0%{
+    color:#A0D468;
+  }
+  
+  20%{
+    color:#4FC1E9;
+  }
+  
+  40%{
+    color:#FFCE54;
+  }
+  
+  60%{
+    color:#FC6E51;
+  }
+  
+  80%{
+    color:#ED5565;
+  }
+  
+  100%{
+    color:#AC92EC;
+  }
+}
+</style>
+<body>
+<center>
+<table>
+<form>
+<tr>
+<th class=a colspan=2>Personal details:</th>
+</tr>
+
+<tr>  
+<td class=a>First Name:</td>
+<td><input type=text name=fname> </td>
+</tr>
+
+<tr>
+<td class=a>Last Name:</td>
+<td><input type=text name=lname></td>
+</tr>
+
+<tr>
+<td class=a>Gender:</td>
+<td><input type = radio name = gender value = Male> Male 
+<input type = radio name = gender value = Female> Female </td>
+</tr>
+
+<tr>
+<td class=a>Choose your favorite subjects:</td>
+<td><input type=checkbox name=fav_sub value=DCS4103>DCS4103
+<input type=checkbox name=fav_sub value=DCS3003>DCS3003
+<input type=checkbox name=fav_sub value=MST1003>MST1003
+<input type=checkbox name=fav_sub value=MST2003>MST2003 </td>
+</tr>
+
+<tr>
+<td class=a>Address:</td>
+<td><textarea rows=4 cols=30 name=address></textarea></td>
+</tr>
+
+<tr>
+<td class=a>Date of birth:</td>
+<td><input type=date name dob></td>
+</tr>
+
+<tr>
+<td class=a>Login Password:</td>
+<td><input type=password name=loginpass></td>
+</tr>
+
+<tr>
+<td class=a>Course:</td>
+<td>
+<label for="course">Choose a course:</label>
+<select id="course" onchange="updateOptions()">
+<option value="loc">- List of Courses -</option>
+<option value="dcs">DCS</option>
+<option value="dib">DIB</option>
+</select>
+
+<label for="courseNumber">Choose a course number:</label>
+<select id="courseNumber">
+</select>
+</td>
+</tr>
+
+<tr>
+<th class=a colspan=2><input type=submit value=Submit>
+<input type=reset value=Reset></th>
+</tr>
+</form>
+</table>
+</center>
+</body>
+</html>
