@@ -4,22 +4,22 @@
 <title>Tutorial 19</title>
 <script>
     function updateOptions() {
-        var selectedCourse = document.getElementById("course").value;
+        var selectedCourse = document.getElementById("formm").value;
 
-        var courseNumberDropdown = document.getElementById("courseNumber");
+        var courseNumberDropdown = document.getElementById("formNumber");
 
         courseNumberDropdown.innerHTML = '';
 
         switch (selectedCourse) {
             case "dcs":
-                addOption(courseNumberDropdown, "dcs1001", "DCS 1001");
-                addOption(courseNumberDropdown, "dcs1002", "DCS 1002");
-                addOption(courseNumberDropdown, "dcs1003", "DCS 1003");
+                addOption(courseNumberDropdown, "DCS1001", "DCS 1001");
+                addOption(courseNumberDropdown, "DCS1002", "DCS 1002");
+                addOption(courseNumberDropdown, "DCS1003", "DCS 1003");
                 break;
             case "dib":
-                addOption(courseNumberDropdown, "dib1001", "DIB 1001");
-                addOption(courseNumberDropdown, "dib1002", "DIB 1002");
-                addOption(courseNumberDropdown, "dib1003", "DIB 1003");
+                addOption(courseNumberDropdown, "DIB1001", "DIB 1001");
+                addOption(courseNumberDropdown, "DIB1002", "DIB 1002");
+                addOption(courseNumberDropdown, "DIB1003", "DIB 1003");
                 break;
             default:
              
@@ -192,14 +192,14 @@ td.a{
 <td class=a>Course:</td>
 <td>
 <label for="course">Choose a course:</label>
-<select id="course" onchange="updateOptions()">
+<select id="formm" onchange="updateOptions()">
 <option value="loc">- List of Courses -</option>
 <option value="dcs">DCS</option>
 <option value="dib">DIB</option>
 </select>
 
-<label for="courseNumber">Choose a course number:</label>
-<select id="courseNumber">
+<label for="formNumber">Choose a course number:</label>
+<select id="formNumber">
 </select>
 </td>
 </tr>
