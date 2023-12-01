@@ -115,4 +115,48 @@ padding: 10px;
 <td onclick="addToCart('Hololive English -Myth- Gawr Gura', 880.00)">Add to cart</td>
 </tr>
 </table>
+<script>
+//popup box
+window.alert("Hello and Welcome to Gawr Gura's Official Shop \n" )
+
+// Shopping cart
+let cart = [];
+let cartTotal = 0;
+
+function addToCart(product, price) {
+    cart.push({ product, price });
+    cartTotal += price;
+
+    updateCartUI();
+}
+
+function resetCart() {
+    cart = [];
+    cartTotal = 0;
+
+    updateCartUI();
+}
+
+function purchaseComplete() {
+    resetCart();
+    window.alert("Thanks for your purchase!");
+}
+
+function updateCartUI() {
+    const cartItemsElement = document.getElementById('cart-items');
+    const cartTotalElement = document.getElementById('cart-total');
+
+    cartItemsElement.innerHTML = '';
+
+    cart.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.product} - RM${item.price.toFixed(2)}`;
+        cartItemsElement.appendChild(listItem);
+    });
+
+    // Update the total price
+    cartTotalElement.textContent = cartTotal.toFixed(2);
+}
+</script>
+
 </html>
