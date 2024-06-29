@@ -62,6 +62,12 @@ function setup() {
     button.style('background-size', 'cover');
     button.mousePressed(increaseDepth);
 
+    button = createButton('');
+    button.position(10, 130);
+    button.size(170, 50);
+    button.style('background-image', 'url(fisherman.png)');
+    button.style('background-size', 'cover');
+    button.mousePressed(tonforfish);
     canvas.mousePressed(startBGM);
 }
 
@@ -241,9 +247,7 @@ function getcoin(fish) {
 
 function keyPressed() {
     if (keyCode === 32) { 
-        if (!hook.isThrown) {
-            hook.isThrown = true;
-        }
+        tonforfish();
     }
     if (key === 'a' || key === 'A') {
         increaseLimit();
@@ -251,6 +255,12 @@ function keyPressed() {
     if (key === 'q' || key === 'Q') {
         increaseDepth();
     }
+}
+
+function tonforfish(){
+	if (!hook.isThrown) {
+            hook.isThrown = true;
+        }
 }
 
 function increaseLimit() {
