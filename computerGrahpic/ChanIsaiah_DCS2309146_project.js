@@ -32,15 +32,7 @@ function preload() {
     img5 = loadImage('increaseLimit.png');
     img6 = loadImage('specialFish.png'); 
     img7 = loadImage('increaseDepth.png');
-    bgm = loadSound('Carefree.mp3', soundLoaded, soundLoadError);
-}
-
-function soundLoaded() {
-    console.log("Sound loaded successfully");
-}
-
-function soundLoadError() {
-    console.error("Failed to load sound");
+    bgm = loadSound('Carefree.mp3');
 }
 
 function setup() {
@@ -67,14 +59,12 @@ function setup() {
     button.mousePressed(increaseDepth);
 
     canvas.mousePressed(startBGM);
-    console.log("Setup completed, waiting for user interaction to start BGM");
 }
 
 function startBGM() {
     if (!bgmPlaying) {
         bgm.loop();
         bgmPlaying = true;
-        console.log("BGM started");
     }
 }
 
