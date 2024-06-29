@@ -12,6 +12,8 @@ let message = '';
 let gold = '';
 let limits = '';
 let depths = '';
+let limt = '';
+let dept = '';
 let messageTimer;
 var img1;
 var img2;
@@ -40,6 +42,8 @@ function setup() {
     gold = 'Gold: ' + score;
     limits = 'Limit= ' + limit;
     depths = 'Depth= ' + (400 + long);
+    limt = 'Next upgrade need ' + (20 + n) + ' golds';
+    dept= 'Next upgrade need ' + (20 + m) + ' golds';
     spawnFish();
     spawnSpecialFish();
     thrower = { x: 460, y: 140, width: 200, height: 100 };
@@ -131,12 +135,12 @@ function draw() {
     }
 
     fill(0);
-    textSize(24);
-    text(gold, 1170, 50);
+    textSize(30);
+    text(gold, 1100, 50);
     
     fill(255, 0, 0);
-    textSize(24);
-    text(message, width / 2, 30);
+    textSize(30);
+    text(message, 800, 30);
     
     fill(0, 255, 0);
     textSize(30);
@@ -145,7 +149,14 @@ function draw() {
     fill(0, 255, 0);
     textSize(30);
     text(depths, 200, 100);
-
+	
+    fill(255, 0, 255);
+    textSize(30);
+    text(limt, 400, 40);
+	
+   fill(255, 0, 255);
+    textSize(30);
+    text(dept, 400, 100);
     checkFishCounts();
 }
 
@@ -250,6 +261,7 @@ function increaseLimit() {
         message = 'Limit increased: ' + limit;
         gold = 'Gold: ' + score;
         limits = 'limits= ' + limit;
+	limt = 'Next upgrade need ' + (20 + n) + ' golds';
     } else {
         message = 'Not enough golds!!';
     }
@@ -267,6 +279,7 @@ function increaseDepth() {
         message = 'Depth increased: ' + long ;
         gold = 'Gold: ' + score;
         depths = 'Depth= ' + (400 + long);
+	dept= 'Next upgrade need ' + (20 + m) + ' golds';
     } else {
         message = 'Not enough golds!!';
     }
