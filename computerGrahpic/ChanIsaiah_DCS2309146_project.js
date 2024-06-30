@@ -283,7 +283,7 @@ function increaseLimit() {
         limit++;
 	limitsc = Math.round(limit/2)-1;
         n += 10;
-        message = 'Limit increased: ' + limit;
+        message = 'Limit increased to ' + limit;
         gold = 'Gold: ' + score;
         limits = 'Limit for normal fish= ' + limit;
 	limtspc = 'Limit for special fish= ' + limitsc;
@@ -302,7 +302,7 @@ function increaseDepth() {
         score -= 20 + m;
         m += 10;
         long += 10;
-        message = 'Depth increased: ' + long ;
+        message = 'Depth increased to ' + (400 + long);
         gold = 'Gold: ' + score;
         depths = 'Depth= ' + (400 + long);
 	dept= 'Next upgrade need ' + (20 + m) + ' golds';
