@@ -44,7 +44,7 @@ function setup() {
     gold = 'Gold: ' + score;
     limits = 'Limit for normal fish= ' + limit;
     limtspc = 'Limit for special fish= ' + limitsc;
-    depths = 'Depth= ' + (400 + long);
+    depths = 'Depth= ' + (400 + long) + ' meters';
     limt = 'Next upgrade need ' + (20 + n) + ' golds';
     dept= 'Next upgrade need ' + (20 + m) + ' golds';
     spawnFish();
@@ -167,7 +167,7 @@ function draw() {
 	
     fill(0);
     textSize(30);
-    text(depths, 600, 160);
+    text(depths, 630, 160);
 	
     fill(255, 0, 255);
     textSize(30);
@@ -302,9 +302,9 @@ function increaseDepth() {
         score -= 20 + m;
         m += 10;
         long += 10;
-        message = 'Depth increased to ' + (400 + long);
+        message = 'Depth increased to ' + (400 + long) + ' meters';
         gold = 'Gold: ' + score;
-        depths = 'Depth= ' + (400 + long);
+        depths = 'Depth= ' + (400 + long) + ' meters';
 	dept= 'Next upgrade need ' + (20 + m) + ' golds';
     } else {
         message = 'Not enough golds!!';
