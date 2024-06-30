@@ -25,7 +25,6 @@ var img8;
 let bgm;
 let bgmPlaying = false;
 let canvas;
-let totalCaught = 0; 
 
 function preload() {
     img1 = loadImage('background.jpg');
@@ -84,6 +83,9 @@ function draw() {
     background(img1);
     line(thrower.x + 182, thrower.y + 54, hook.x, hook.y);
     image(img4, hook.x, hook.y, hook.width, hook.height);
+
+	
+    let totalCaught = 0; 
     
     for (let i = fish.length - 1; i >= 0; i--) {
         fish[i].update();
