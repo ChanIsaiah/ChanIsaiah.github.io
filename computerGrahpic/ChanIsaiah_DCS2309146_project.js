@@ -149,34 +149,33 @@ function draw() {
         hook.y = thrower.y + 50;
     }
 
-
     fill(255, 255, 0);
     textSize(30);
     text(gold, 1100, 50);
     
     fill(255, 0, 0);
     textSize(30);
-    text(message, 550, 160);
+    text(message, 200, 160);
     
     fill(0);
     textSize(30);
-    text(limits, 200, 40);
+    text(limits, 600, 40);
     
     fill(0);
     textSize(30);
-    text(limtspc, 200, 100);
+    text(limtspc, 600, 100);
 	
     fill(0);
     textSize(30);
-    text(depths, 200, 160);
+    text(depths, 600, 160);
 	
     fill(255, 0, 255);
     textSize(30);
-    text(limt, 550, 40);
+    text(limt, 200, 40);
 	
     fill(255, 0, 255);
     textSize(30);
-    text(dept, 550, 100);
+    text(dept, 200, 100);
 	
     checkFishCounts();
 }
