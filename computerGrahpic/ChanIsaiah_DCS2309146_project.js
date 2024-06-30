@@ -4,6 +4,7 @@ let score = 0;
 let hook = { x: 0, y: 0, width: 10, height: 30, speed: 5, isThrown: false, returning: false };
 let thrower;
 let limit = 3;
+let limitsc = Math.round(limit/2)-1;
 let long = 0;
 let m = 0;
 let n = 0;
@@ -41,7 +42,8 @@ function preload() {
 function setup() {
     canvas = createCanvas(1280, 720);
     gold = 'Gold: ' + score;
-    limits = 'Limit= ' + limit;
+    limits = 'Limit for normal fish= ' + limit;
+    limtspc = 'Limit for special fish= ' + limitsc;
     depths = 'Depth= ' + (400 + long);
     limt = 'Next upgrade need ' + (20 + n) + ' golds';
     dept= 'Next upgrade need ' + (20 + m) + ' golds';
@@ -147,30 +149,33 @@ function draw() {
         hook.y = thrower.y + 50;
     }
 
-    fill(0);
+    fill(255, 255, 0);
     textSize(30);
     text(gold, 1100, 50);
     
     fill(255, 0, 0);
     textSize(30);
-    text(message, 800, 30);
+    text(message, 550, 160);
     
-    fill(0, 255, 0);
+    fill(0);
     textSize(30);
     text(limits, 200, 40);
     
-    fill(0, 255, 0);
+    fill(0);
     textSize(30);
-    text(depths, 200, 100);
+    text(limtspc, 200, 100);
+	
+    fill(0);
+    textSize(30);
+    text(depths, 200, 160);
 	
     fill(255, 0, 255);
     textSize(30);
-    text(limt, 400, 40);
+    text(limt, 550, 40);
 	
-   fill(255, 0, 255);
+    fill(255, 0, 255);
     textSize(30);
-    text(dept, 400, 100);
-    checkFishCounts();
+    text(dept, 550, 100);
 }
 
 class Fish {
@@ -274,10 +279,12 @@ function increaseLimit() {
     if (score >= 20 + n) {
         score -= 20 + n;
         limit++;
+	limitsc = Math.round(limit/2)-1;
         n += 10;
         message = 'Limit increased: ' + limit;
         gold = 'Gold: ' + score;
-        limits = 'limits= ' + limit;
+        limits = 'Limit for normal fish= ' + limit;
+	limtspc = 'Limit for special fish= ' + limitsc;
 	limt = 'Next upgrade need ' + (20 + n) + ' golds';
     } else {
         message = 'Not enough golds!!';
