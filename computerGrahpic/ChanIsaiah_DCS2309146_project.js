@@ -84,37 +84,45 @@ function draw() {
     line(thrower.x + 182, thrower.y + 54, hook.x, hook.y);
     image(img4, hook.x, hook.y, hook.width, hook.height);
 
-	
-    let totalCaught = 0; 
-    
     for (let i = fish.length - 1; i >= 0; i--) {
-        fish[i].update();
-        fish[i].display();
-        if (fish[i].caught) { totalCaught++; }
-        if (catching(fish[i]) && totalCaught < limit) {
-            fish[i].caught = true;
+    fish[i].update();
+    fish[i].display();
+         for (let i = fish.length - 1; i >= 0; i--) {
+            if (fish[i].caught == true) {caught += 1}
+	    }
+        if (catching(fish[i])) {
+			if (caught < limit) {
+				fish[i].caught = true;
+			}
         }
-        if (getcoin(fish[i])) {
-            fish.splice(i, 1);
+		if (getcoin(fish[i])){
+			fish.splice(i, 1);
             score++;
-            gold = 'Gold: ' + score;
-        }
+			gold = 'Gold: ' + score;
+		}
+		
+		caught = 0;
     }
-
-    for (let i = specialFish.length - 1; i >= 0; i--) {
+	
+	for (let i = specialFish.length - 1; i >= 0; i--) {
         specialFish[i].update();
         specialFish[i].display();
-        if (specialFish[i].caught) { totalCaught++; }
-        if (catching(specialFish[i]) && totalCaught < limit) {
-            specialFish[i].caught = true;
+		for (let i = specialFish.length - 1; i >= 0; i--) {
+			if (specialFish[i].caught == true) {caught += 1}
+		}
+        if (catching(specialFish[i])) {
+			if (caught < (limit/2)-1) {
+				specialFish[i].caught = true;
+			}
         }
-        if (getcoin(specialFish[i])) {
-            specialFish.splice(i, 1);
-            score += 5; 
-            gold = 'Gold: ' + score;
-        }
+		if (getcoin(specialFish[i])){
+			specialFish.splice(i, 1);
+            score += 5; // Earn 5 points for catching special fish
+			gold = 'Gold: ' + score;
+		}
+		
+		caught = 0;
     }
-
     image(img3, thrower.x, thrower.y, thrower.width, thrower.height);
 
     if (hook.isThrown) {
