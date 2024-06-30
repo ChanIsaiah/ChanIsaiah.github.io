@@ -149,6 +149,7 @@ function draw() {
         hook.y = thrower.y + 50;
     }
 
+
     fill(255, 255, 0);
     textSize(30);
     text(gold, 1100, 50);
@@ -176,6 +177,8 @@ function draw() {
     fill(255, 0, 255);
     textSize(30);
     text(dept, 550, 100);
+	
+    checkFishCounts();
 }
 
 class Fish {
@@ -216,7 +219,7 @@ class SpecialFish extends Fish {
     }
 
     display() {
-        image(img6, this.x, this.y, this.width, this.height); // Use special fish image
+        image(img6, this.x, this.y, this.width, this.height); 
     }
 }
 
