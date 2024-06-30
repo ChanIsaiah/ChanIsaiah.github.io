@@ -7,7 +7,6 @@ let limit = 3;
 let long = 0;
 let m = 0;
 let n = 0;
-let topup = false;
 let message = '';
 let gold = '';
 let limits = '';
@@ -22,9 +21,11 @@ var img4;
 var img5;
 var img6;
 var img7;
+var img8;
 let bgm;
 let bgmPlaying = false;
 let canvas;
+let totalCaught = 0; 
 
 function preload() {
     img1 = loadImage('background.jpg');
@@ -34,6 +35,7 @@ function preload() {
     img5 = loadImage('increaseLimit.png');
     img6 = loadImage('specialFish.png'); 
     img7 = loadImage('increaseDepth.png');
+    img8 = loadImage('fishing.png');
     bgm = loadSound('Carefree.mp3');
 }
 
@@ -65,7 +67,7 @@ function setup() {
     button = createButton('');
     button.position(10, 130);
     button.size(170, 50);
-    button.style('background-image', 'url(fisherman.png)');
+    button.style('background-image', 'url(fishing.png)');
     button.style('background-size', 'cover');
     button.mousePressed(tonforfish);
     canvas.mousePressed(startBGM);
@@ -83,8 +85,6 @@ function draw() {
     line(thrower.x + 182, thrower.y + 54, hook.x, hook.y);
     image(img4, hook.x, hook.y, hook.width, hook.height);
     
-    let totalCaught = 0; 
-
     for (let i = fish.length - 1; i >= 0; i--) {
         fish[i].update();
         fish[i].display();
@@ -120,9 +120,6 @@ function draw() {
             hook.y += hook.speed;
             if (hook.y >= 400 + long) {
                 hook.returning = true;
-                if (topup == true) {
-                    for (let i = fish.length - 1; i >= 0; i--) { fish[i].caught = true; }
-                }
             }
         } else {
             hook.y -= hook.speed;
