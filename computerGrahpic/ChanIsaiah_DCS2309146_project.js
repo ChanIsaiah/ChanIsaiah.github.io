@@ -261,10 +261,10 @@ function keyPressed() {
     if (keyCode === 32) { 
         tonforfish();
     }
-    if (key === 'a' || key === 'A') {
+    if (key === 'q' || key === 'Q') {
         increaseLimit();
     }
-    if (key === 'q' || key === 'Q') {
+    if (key === 'a' || key === 'A') {
         increaseDepth();
     }
 }
