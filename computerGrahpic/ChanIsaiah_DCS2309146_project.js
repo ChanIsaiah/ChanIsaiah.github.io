@@ -75,9 +75,12 @@ function setup() {
 }
 
 function startBGM() {
-    if (!bgmPlaying) {
+    if (!bgm.isPlaying()) {
         bgm.loop();
         bgmPlaying = true;
+    } else {
+        bgm.pause();
+        bgmPlaying = false;
     }
 }
 
@@ -323,3 +326,4 @@ function checkFishCounts() {
         spawnSpecialFish();
     }
 }
+
